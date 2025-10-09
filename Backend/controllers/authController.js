@@ -25,6 +25,15 @@ const register = async (req, res) => {
       });
     }
 
+    const regex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!regex.test(password)) {
+      return res.status(422).json({
+        success: false,
+        message: "Please enter strong password.",
+      });
+    }
+
     const actualOtp = await OTP.findOne({ email }).sort({ createdAt: -1 });
     if (
       !actualOtp ||
@@ -68,7 +77,8 @@ const register = async (req, res) => {
       text: `Welcome to Campus Exchange. your account has been created using email id: ${email}`,
     };
 
-    await transporter.sendMail(mailOptions);
+    if (process.env.NODE_ENV !== "test")
+      await transporter.sendMail(mailOptions);
 
     await OTP.deleteMany({ email: email });
 
@@ -170,6 +180,15 @@ const resetPassword = async (req, res) => {
       });
     }
 
+    const regex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!regex.test(newPassword)) {
+      return res.status(422).json({
+        success: false,
+        message: "Please enter strong password.",
+      });
+    }
+
     const newHashedPassword = await bcrypt.hash(newPassword, 10);
 
     user.passwordChangedAt = Date.now() - 1000;
@@ -225,6 +244,15 @@ const forgotPassword = async (req, res) => {
       return res
         .status(401)
         .json({ success: false, message: "Invalid email or OTP." });
+    }
+
+    const regex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!regex.test(newPassword)) {
+      return res.status(422).json({
+        success: false,
+        message: "Please enter strong password.",
+      });
     }
 
     const newHashedPassword = await bcrypt.hash(newPassword, 10);

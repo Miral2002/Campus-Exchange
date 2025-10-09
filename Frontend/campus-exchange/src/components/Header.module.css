@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: white;
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+
+  --tw-border-opacity: 1;
+  border-bottom: 1px solid rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+
+.headerLeft {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.headerSvg {
+  height: 2rem;
+  width: 2rem;
+  color: #1173d4;
+}
+
+.headerTitle {
+  align-content: center;
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+
+.divider {
+  border-top: 0.5px solid rgba(195, 195, 195, 0.863);
+  box-shadow: 0.5px 0.5px 0.5px rgba(195, 195, 195, 0.863);
+  width: 100%;
+  height: 2px;
+}
+
+.profileImg {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #1173d4;
+  background-color: #e4e8ec;
+  border-radius: 1.4rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+  padding-left: 2rem;
+  font-size: 0.95rem;
+}
+
+.navlink {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+
+.menu {
+  position: absolute;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin-left: -3.5rem;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 10px;
+  padding: 0.7rem;
+}
+
+.menu li {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+}

@@ -5,6 +5,7 @@ const connectDb = require("./config/mongodb.js");
 const authRouter = require("./routes/authRoute.js");
 const otpRouter = require("./routes/otpRoute.js");
 const cors = require("cors");
+const productRouter = require("./routes/productRoute.js");
 const app = express();
 
 dotenv.config();
@@ -34,5 +35,6 @@ app.get("/", function (req, res) {
 
 app.use("/api/auth", authRouter);
 app.use("/api/otp", otpRouter);
+app.use("/api/products", productRouter);
 
-module.exports = app;
+module.exports = { app };

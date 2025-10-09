@@ -6,7 +6,7 @@ const {
   isAuthenticated,
   resetPassword,
   forgotPassword,
-} = require("../controllers/authControllers");
+} = require("../controllers/authController");
 const authMiddleware = require("../middlewares/authMiddleware");
 const authRouter = express.Router();
 

@@ -25,8 +25,6 @@ const authMiddleware = async (req, res, next) => {
       }
 
       if (tokenDecode.iat * 1000 < user.passwordChangedAt.getTime()) {
-        console.log("Decoded Token:", tokenDecode);
-        console.log("passwordChangedAt:", user.passwordChangedAt);
         return res.status(401).json({
           success: false,
           message: "Not authorised. Sign in again.",

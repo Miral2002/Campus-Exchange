@@ -45,7 +45,7 @@ const SignIn = () => {
   };
 
   return (
-    <div id="root">
+    <div className={styles.root}>
       <div className={styles.header}>
         <div className={styles.headerLeft}>
           <svg
@@ -60,8 +60,6 @@ const SignIn = () => {
           <p className={styles.headerTitle}>Campus Exchange</p>
         </div>
       </div>
-
-      <div className={styles.divider}></div>
 
       <div className={styles.main}>
         <div className={styles.cardContainer}>
