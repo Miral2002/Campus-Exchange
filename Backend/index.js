@@ -21,7 +21,7 @@ app.use(
   })
 );
 
-if (process.env.Node_ENV !== "test") {
+if (process.env.NODE_ENV !== "test") {
   connectDb();
 
   app.listen(port, function () {

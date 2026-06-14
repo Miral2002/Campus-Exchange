@@ -31,6 +31,7 @@ const authMiddleware = async (req, res, next) => {
         });
       }
 
+      req.body = req.body || {};
       req.body.userId = tokenDecode.id;
     } else {
       return res.status(401).json({
